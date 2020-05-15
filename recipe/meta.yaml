@@ -1,20 +1,20 @@
 {% set name = "aws-sam-cli" %}
-{% set version = "0.48.0" %}
+{% set version = "0.49.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 2cb766b29000ec5e47c4bd6218e7abc6093e6153a6ac7a437633b96c705efe41
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 0c5f266312ee9b5695f36577dda5bffbac97a59351cd5facd075f35ed96d965f
 
 build:
   noarch: python
   number: 0
   entry_points:
     - sam=samcli.cli.main:cli
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -91,13 +91,13 @@ test:
     - sam --help
 
 about:
-  home: "https://github.com/awslabs/aws-sam-cli"
+  home: https://github.com/awslabs/aws-sam-cli
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: "AWS SAM CLI is a CLI tool for local development and testing of Serverless applications"
-  doc_url: "https://aws.amazon.com/serverless/sam/"
-  dev_url: "https://github.com/awslabs/aws-sam-cli"
+  summary: AWS SAM CLI is a CLI tool for local development and testing of Serverless applications
+  doc_url: https://aws.amazon.com/serverless/sam/
+  dev_url: https://github.com/awslabs/aws-sam-cli
 
 extra:
   recipe-maintainers:
