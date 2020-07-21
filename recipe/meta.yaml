@@ -1,5 +1,5 @@
 {% set name = "aws-sam-cli" %}
-{% set version = "0.53.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a2e8a16de23080f709eba3316c623ff4b115e72068b38acbe6088cfc25e538f0
+  sha256: 76a4f81114b72470256ff6d539c16bc6940aa2158d240dc5858b143c10b96385
 
 build:
   noarch: python
