@@ -5,7 +5,7 @@ Home: https://github.com/awslabs/aws-sam-cli
 
 Package license: Apache-2.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: AWS SAM CLI is a CLI tool for local development and testing of Serverless applications
 
