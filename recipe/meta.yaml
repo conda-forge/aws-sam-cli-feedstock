@@ -1,5 +1,5 @@
 {% set name = "aws-sam-cli" %}
-{% set version = "1.18.1" %}
+{% set version = "1.20.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6f8b2bb1198910280b8f4a92d7f0a4e662550bfe79a3c7603ce065919da0fd84
+  sha256: 3789e961b90e50619399e0d1e58c7467c10290e5b9922a119400985d4fe00367
 
 build:
   noarch: python
@@ -19,7 +19,7 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
     - aws-sam-translator >=1.22.0
     - aws_lambda_builders >=0.8.0
@@ -31,7 +31,7 @@ requirements:
     - docker-py >=4.0,<5
     - flask >=1.0.2,<1.1
     - jmespath >=0.9.5,<0.10
-    - python
+    - python >=3.6
     - python-dateutil >=2.6,<3
     - pyyaml >=5.1,<6
     - requests >=2.23.0
