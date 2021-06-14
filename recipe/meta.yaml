@@ -1,5 +1,5 @@
 {% set name = "aws-sam-cli" %}
-{% set version = "1.23.0" %}
+{% set version = "1.24.1" %}
 
 package:
   name: {{ name|lower }}
@@ -67,10 +67,8 @@ test:
     - samcli.lib.build
     - samcli.lib.config
     - samcli.lib.deploy
-    - samcli.lib.generated_sample_events
     - samcli.lib.init
     - samcli.lib.intrinsic_resolver
-    - samcli.lib.logs
     - samcli.lib.package
     - samcli.lib.providers
     - samcli.lib.samlib
@@ -102,6 +100,5 @@ about:
 extra:
   recipe-maintainers:
     - mxr-conda
-    - rluria14
+    - achangeo
     - oblute
-    - ndmaxar
