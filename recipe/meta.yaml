@@ -48,6 +48,7 @@ test:
     - samcli.commands.bootstrap
     - samcli.commands.build
     - samcli.commands.deploy
+    - samcli.lib.generated_sample_events
     - samcli.commands.init
     - samcli.commands.local
     - samcli.commands.local.cli_common
