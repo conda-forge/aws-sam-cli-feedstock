@@ -52,7 +52,6 @@ test:
     - samcli.commands.init
     - samcli.commands.local
     - samcli.commands.local.cli_common
-    - samcli.commands.local.generate_event
     - samcli.commands.local.invoke
     - samcli.commands.local.lib
     - samcli.commands.local.lib.swagger
