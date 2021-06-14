@@ -48,10 +48,10 @@ test:
     - samcli.commands.bootstrap
     - samcli.commands.build
     - samcli.commands.deploy
-    - samcli.lib.generated_sample_events
     - samcli.commands.init
     - samcli.commands.local
     - samcli.commands.local.cli_common
+    - samcli.commands.local.generate_event
     - samcli.commands.local.invoke
     - samcli.commands.local.lib
     - samcli.commands.local.lib.swagger
@@ -67,6 +67,7 @@ test:
     - samcli.lib.build
     - samcli.lib.config
     - samcli.lib.deploy
+    - samcli.lib.generated_sample_events
     - samcli.lib.init
     - samcli.lib.intrinsic_resolver
     - samcli.lib.package
