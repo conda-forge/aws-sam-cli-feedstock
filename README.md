@@ -119,7 +119,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@ndmaxar](https://github.com/ndmaxar/)
+* [@achangeo](https://github.com/achangeo/)
+* [@mxr-conda](https://github.com/mxr-conda/)
 * [@oblute](https://github.com/oblute/)
-* [@rluria14](https://github.com/rluria14/)
 
