@@ -1,102 +1,75 @@
-{% set name = "aws-sam-cli" %}
-{% set version = "1.36.0" %}
+{% set version = "1.154.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: aws-sam-cli
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1896c185ed65db964719656ed68da826f77f04dbfc76feda218a2bfde6c597d5
+  url: https://pypi.org/packages/source/a/aws-sam-cli/aws_sam_cli-{{ version }}.tar.gz
+  sha256: 4f3cb8781c1873028111d8e614f731b039d6095fa683a9b71e9d110070d0870e
 
 build:
-  noarch: python
-  number: 0
   entry_points:
     - sam=samcli.cli.main:cli
-  script: {{ PYTHON }} -m pip install . -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
+    - python >=3.9,<3.14
+    - setuptools
+    - wheel
     - pip
-    - python >=3.6
   run:
-    - aws-sam-translator >=1.22.0
-    - aws_lambda_builders >=0.8.0
-    - boto3 >=1.10,<2
-    - chevron >=0.12,<1
-    - click >=7.0,<8
-    - cookiecutter >=1.6.0,<1.7
-    - dateparser >=0.7,<1
-    - docker-py >=4.0,<5
-    - flask >=1.0.2,<1.1
-    - jmespath >=0.9.5,<0.10
-    - python >=3.6
-    - python-dateutil >=2.6,<3
-    - pyyaml >=5.1,<6
-    - requests >=2.23.0
-    - serverlessrepo >=0.1.9
-    - tomlkit >=0.5.8
+    - python >=3.9,<3.14
+    - chevron >=0.12,<1.dev0
+    - click ==8.1.8
+    - flask <3.2
+    - boto3 ==1.42.26
+    - jmespath >=1.0.1,<1.1.dev0
+    - ruamel_yaml >=0.18.16,<0.19.dev0
+    - pyyaml >=6.0,<7.dev0
+    - cookiecutter >=2.6.0,<2.7.dev0
+    - aws-sam-translator ==1.107.0
+    - docker-py >=7.1.0,<7.2.dev0
+    - dateparser >=1.2,<2.dev0
+    - requests >=2.32.5,<2.33.dev0
+    - aws_lambda_builders ==1.62.0
+    - tomlkit ==0.14.0
+    - watchdog ==4.0.2
+    - rich >=14.2.0,<14.3.dev0
+    - pyopenssl >=25.3.0,<25.4.dev0
+    - jsonschema <4.27
+    - typing_extensions >=4.4.0,<5
+    - regex !=2021.10.8
+    - tzlocal ==5.3.1
+    - cfn-lint >=1.43.1,<1.44.dev0
+    - boto3-stubs >=1.41.0
 
 test:
   imports:
     - samcli
-    - samcli.cli
-    - samcli.commands
-    - samcli.commands._utils
-    - samcli.commands._utils.custom_options
-    - samcli.commands.bootstrap
-    - samcli.commands.build
-    - samcli.commands.deploy
-    - samcli.commands.init
-    - samcli.commands.local
-    - samcli.commands.local.cli_common
-    - samcli.commands.local.generate_event
-    - samcli.commands.local.invoke
-    - samcli.commands.local.lib
-    - samcli.commands.local.lib.swagger
-    - samcli.commands.local.start_api
-    - samcli.commands.local.start_lambda
-    - samcli.commands.logs
-    - samcli.commands.package
-    - samcli.commands.publish
-    - samcli.commands.validate
-    - samcli.commands.validate.lib
-    - samcli.lib
-    - samcli.lib.bootstrap
-    - samcli.lib.build
-    - samcli.lib.config
-    - samcli.lib.deploy
-    - samcli.lib.generated_sample_events
-    - samcli.lib.init
-    - samcli.lib.intrinsic_resolver
-    - samcli.lib.package
-    - samcli.lib.providers
-    - samcli.lib.samlib
-    - samcli.lib.schemas
-    - samcli.lib.telemetry
-    - samcli.lib.utils
-    - samcli.local
-    - samcli.local.apigw
-    - samcli.local.common
-    - samcli.local.docker
-    - samcli.local.events
-    - samcli.local.lambda_service
-    - samcli.local.lambdafn
-    - samcli.local.layers
-    - samcli.local.services
-    - samcli.settings
   commands:
+    - pip check
     - sam --help
+  requires:
+    - pip
+    - python
 
 about:
-  home: https://github.com/awslabs/aws-sam-cli
-  license: Apache-2.0
-  license_family: APACHE
-  license_file: LICENSE
+  home: https://github.com/aws/aws-sam-cli
   summary: AWS SAM CLI is a CLI tool for local development and testing of Serverless applications
-  doc_url: https://aws.amazon.com/serverless/sam/
-  dev_url: https://github.com/awslabs/aws-sam-cli
+  license: Apache-2.0 AND MIT
+  license_file:
+    - LICENSE
+    - NOTICE
+    - samcli/lib/init/templates/cookiecutter-aws-sam-hello-java-maven/LICENSE
+    - samcli/lib/init/templates/cookiecutter-aws-sam-hello-nodejs/LICENSE
+    - samcli/lib/init/templates/cookiecutter-aws-sam-hello-java-gradle/LICENSE
+    - samcli/lib/init/templates/cookiecutter-aws-sam-hello-python/LICENSE
+    - samcli/lib/init/templates/cookiecutter-aws-sam-hello-dotnet/LICENSE
+    - samcli/lib/init/templates/cookiecutter-aws-sam-hello-ruby/LICENSE
 
 extra:
   recipe-maintainers:
