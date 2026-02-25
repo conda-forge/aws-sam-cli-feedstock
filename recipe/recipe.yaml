@@ -32,7 +32,7 @@ requirements:
     - flask <3.2
     - boto3 ==1.42.26
     - jmespath >=1.0.1,<1.1.dev0
-    - ruamel_yaml >=0.18.16,<0.19.dev0
+    - ruamel.yaml >=0.18.16,<0.19.dev0
     - pyyaml >=6.0,<7.dev0
     - cookiecutter >=2.6.0,<2.7.dev0
     - aws-sam-translator ==1.107.0
