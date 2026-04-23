@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 1896c185ed65db964719656ed68da826f77f04dbfc76feda218a2bfde6c597d5
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - sam=samcli.cli.main:cli
   script: {{ PYTHON }} -m pip install . -vv
@@ -19,7 +19,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - aws-sam-translator >=1.22.0
     - aws_lambda_builders >=0.8.0
@@ -31,7 +31,7 @@ requirements:
     - docker-py >=4.0,<5
     - flask >=1.0.2,<1.1
     - jmespath >=0.9.5,<0.10
-    - python >=3.6
+    - python >={{ python_min }}
     - python-dateutil >=2.6,<3
     - pyyaml >=5.1,<6
     - requests >=2.23.0
@@ -39,6 +39,8 @@ requirements:
     - tomlkit >=0.5.8
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - samcli
     - samcli.cli
